@@ -22,7 +22,7 @@ namespace Reddit.Controllers
         {
             var author = new User
             {
-                Name = createAuthorDto.Name
+                UserName = createAuthorDto.Name
             };
 
             await _context.Users.AddAsync(author);

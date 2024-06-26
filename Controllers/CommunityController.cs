@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Reddit.Dtos;
 using Reddit.Mapper;
@@ -39,6 +40,7 @@ namespace Reddit.Controllers
             return community;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateCommunity(CreateCommunityDto communityDto)
         {
@@ -49,6 +51,7 @@ namespace Reddit.Controllers
                 return Ok();
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCommunity(int id)
         {
@@ -64,6 +67,7 @@ namespace Reddit.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCommunity (int id, Community community)
         {
